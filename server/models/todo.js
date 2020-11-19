@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+// This is my model for the schema
 const TodoSchema = new mongoose.Schema(
     {
         title: {

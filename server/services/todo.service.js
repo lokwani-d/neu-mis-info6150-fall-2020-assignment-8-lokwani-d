@@ -1,6 +1,6 @@
 import Todo from './../models/todo';
 
-
+// These are my service methods invoked by the controller
 const search = (filter) => {
     const promise = Todo.find(filter).exec();
     return promise;

@@ -1,5 +1,7 @@
 import todoService from './../services/todo.service';
+// This is my controller having all the control methods
 
+//homepage
 const index = (request, response) => {
     todoService.search({})
         .then((todos) => {
@@ -9,6 +11,7 @@ const index = (request, response) => {
         .catch(handleError(response));
 };
 
+// get request
 const get = (request, response) => {
     const id = request.params.id;
     todoService.get(id)
@@ -19,6 +22,7 @@ const get = (request, response) => {
         .catch(handleError(response));
 };
 
+// post request
 const create = (request, response) => {
     const newTodo = Object.assign({}, request.body);
     todoService.create(newTodo)
@@ -29,6 +33,7 @@ const create = (request, response) => {
         .catch(handleError(response));
 };
 
+// put request
 const update = (request, response) => {
     const id = request.params.id;
     const updateTodo = Object.assign({}, request.body);
@@ -39,6 +44,8 @@ const update = (request, response) => {
         })
         .catch(handleError(response));
 };
+
+// delete request
 
 const remove = (request, response) => {
     const id = request.params.id;
@@ -52,6 +59,7 @@ const remove = (request, response) => {
         .catch(handleError(response));
 };
 
+// handling errors
 const handleError = (response) => {
     return (error) => {
         response.status(500);
